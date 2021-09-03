@@ -67,6 +67,7 @@
                   <form method="post" action="#">
                     <div class="connexion">
                       <input type="submit" name="btnDisconnect" id="btnDisconnect" class="btnDisconnect" value="Déconnexion">
+                      <input type="submit" name="btnDelete" id="btnDelete" class="btnDelete" value="Suppression">
                     </div>
                   </form>
                 ';

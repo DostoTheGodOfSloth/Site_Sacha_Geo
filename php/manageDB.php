@@ -1,6 +1,6 @@
 <?php
     ///ETML
-    ///Author      : Sacha Hunacek - Florian Tauxe
+    ///Author      : Sacha Hunacek - Florian Tauxe - Dorian Capelli
     ///Date        : 19.04.2021
     ///Description : Cette classe permet de communiquer avec la base de données
 
@@ -254,6 +254,19 @@
                 echo "<div><h2>".$terme_trouve['quiTitle']."</h2></div>";
             }
             $select_terme->closeCursor();
+        }
+
+        public function deleteAccount($useNom, $useMdp)
+        {
+            $idUser = $this->queryPrepareExecute(
+                "SELECT * FROM t_user WHERE useNom = :useNom AND useMdp = :useMdp",
+                ['useNom' => $useNom, 'useMdp' => $useMdp],
+            );
+
+            $this->querySimpleExecute(
+                "DELETE FROM t_user WHERE idUser = :idUser",
+                ['idUser' => $idUser],
+            );
         }
     }
 ?>
