@@ -256,16 +256,33 @@
             $select_terme->closeCursor();
         }
 
-        public function deleteAccount($useNom, $useMdp)
+        public function deleteAccount($useNom)
         {
-            $idUser = $this->queryPrepareExecute(
-                "SELECT * FROM t_user WHERE useNom = :useNom AND useMdp = :useMdp",
-                ['useNom' => $useNom, 'useMdp' => $useMdp],
+            $user = $this->queryPrepareExecute(
+                "SELECT * FROM t_user WHERE useNom = :useNom",
+                ['useNom' => $useNom],
             );
 
-            $this->querySimpleExecute(
+            $idUser = $user[0]['idUser'];
+
+            $this->queryPrepareExecute(
+                "DELETE FROM t_score WHERE fkUser = :fkUser",
+                ['fkUser' => $idUser],
+            );            
+
+            $this->queryPrepareExecute(
                 "DELETE FROM t_user WHERE idUser = :idUser",
                 ['idUser' => $idUser],
+            );
+        }
+
+        public function searchQuiz($nomQuizz)
+        {
+            $search = "%$nomQuizz%";
+
+            return $this->queryPrepareExecute(
+                "SELECT * FROM t_quiz WHERE quiTitre LIKE :search",
+                ['search' => $search],
             );
         }
     }

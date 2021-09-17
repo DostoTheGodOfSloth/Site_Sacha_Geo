@@ -63,7 +63,7 @@
                 echo'
                   <form method="post" action="#">
                     <div class="connexion">
-                      <input type="submit" name="btnDisconnect" id="btnDisconnect" class="btnDisconnect" value="Déconnexion">
+                      <input type="submit" name="btnDisconnect" class="btnAll" value="Déconnexion">
                     </div>
                   </form>
                 ';
@@ -73,7 +73,7 @@
                 echo'
                   <form method="post" action="login.php">
                     <div class="connexion">
-                      <input type="submit" name="btnLogin" id="btnLogin" class="btnLogin" value="Connexion">
+                      <input type="submit" name="btnLogin" class="btnAll" value="Connexion">
                     </div>
                   </form>
                 ';

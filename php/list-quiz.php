@@ -16,6 +16,11 @@
       session_destroy();
       header('location:#');
     }
+
+    if(isset($_GET['terme']) && !(empty($_GET['terme']))){
+      $terme = $_GET['terme'];
+      $quizSearch = $database->searchQuiz($terme);
+    }
 ?>
 
 <!doctype html>
@@ -68,7 +73,7 @@
                 echo'
                   <form method="post" action="#">
                     <div class="connexion">
-                      <input type="submit" name="btnDisconnect" id="btnDisconnect" class="btnDisconnect" value="Déconnexion">
+                      <input type="submit" name="btnDisconnect" class="btnAll" value="Déconnexion">
                     </div>
                   </form>
                 ';
@@ -78,7 +83,7 @@
                 echo'
                   <form method="post" action="login.php">
                     <div class="connexion">
-                      <input type="submit" name="btnLogin" id="btnLogin" class="btnLogin" value="Connexion">
+                      <input type="submit" name="btnLogin" class="btnAll" value="Connexion">
                     </div>
                   </form>
                 ';
@@ -92,33 +97,62 @@
     <section class="py-5 text-center container">
       <div class="album py-5 bg-light">
 
-        <form action="manageDB.php" method="get">
-          <input type="search" name="terme">
-          <input type="submit" name="s" value="Rechercher">
+        <form action="list-quiz.php" method="get" id="search">
+          <input type="search" name="terme" id="bar">
+          <input type="submit" class="btnAll" value="Rechercher">
         </form>
         
         <div class="container-f">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 boxQuiz">
 
             <?php
-            foreach ($quizzes as $quiz)
-            {
-              echo"
-                <div class='card'>
-                  <a href='quiz/".$quiz['quiLien'].".php'>
-                    <p class='textCard'>".$quiz['quiTitre']."</p>
-                    <img class='imgCapital' src='../img/imgQuiz/".$quiz['idQuiz'].".png' alt='Lausanne'/>
-                    <div class='card-body'>
-                      <p class='card-text'>".$quiz['quiDescription']."</p>
-                      <div class='text-muted-1'>
-                        <small>".$quiz['quiDifficulte']."</small>
-                        <small>".$quiz['quiTemps']."</small>
-                      </div>
+            if (isset($terme) && !(empty($terme))) {
+              if (isset($quizSearch) && !(empty($quizSearch))) {
+                foreach ($quizSearch as $quiz)
+                {
+                  echo"
+                    <div class='card'>
+                      <a href='quiz/".$quiz['quiLien'].".php'>
+                        <p class='textCard'>".$quiz['quiTitre']."</p>
+                        <img class='imgCapital' src='../img/imgQuiz/".$quiz['idQuiz'].".png' alt='Lausanne'/>
+                        <div class='card-body'>
+                          <p class='card-text'>".$quiz['quiDescription']."</p>
+                          <div class='text-muted-1'>
+                            <small>".$quiz['quiDifficulte']."</small>
+                            <small>".$quiz['quiTemps']."</small>
+                          </div>
+                        </div>
+                      </a>
                     </div>
-                  </a>
-                </div>
-              ";
+                  ";
+                }
+              }
+              else{
+                echo "Les quizzes sur $terme n'existe pas malheureusement";
+              }
+              
             }
+            else{
+              foreach ($quizzes as $quiz)
+              {
+                echo"
+                  <div class='card'>
+                    <a href='quiz/".$quiz['quiLien'].".php'>
+                      <p class='textCard'>".$quiz['quiTitre']."</p>
+                      <img class='imgCapital' src='../img/imgQuiz/".$quiz['idQuiz'].".png' alt='Lausanne'/>
+                      <div class='card-body'>
+                        <p class='card-text'>".$quiz['quiDescription']."</p>
+                        <div class='text-muted-1'>
+                          <small>".$quiz['quiDifficulte']."</small>
+                          <small>".$quiz['quiTemps']."</small>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                ";
+              }
+            }
+            
             ?>
             
           </div>

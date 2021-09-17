@@ -10,11 +10,23 @@
     $database = new Database();
     $quizzes = $database->getAllQuiz();
 
+     //If the user has deleted a account
+    if(isset($_GET['delete']) && $_GET['delete'] == true){
+      echo "<script>alert('votre compte a bien été supprimer')</script>";
+      header("Location:index.php");
+    }
+
+
     //Si l'utilisateur a pressé sur le bouton se deconnecter
     if(isset($_POST['btnDisconnect']))
     {
       session_destroy();
       header('location:#');
+    }
+
+    if(isset($_POST['btnDelete']))
+    {
+      header('location:delete.php');
     }
 ?>
 
@@ -66,8 +78,8 @@
                 echo'
                   <form method="post" action="#">
                     <div class="connexion">
-                      <input type="submit" name="btnDisconnect" id="btnDisconnect" class="btnDisconnect" value="Déconnexion">
-                      <input type="submit" name="btnDelete" id="btnDelete" class="btnDelete" value="Suppression">
+                      <input type="submit" name="btnDisconnect" class="btnAll" value="Déconnexion">
+                      <input type="submit" name="btnDelete" class="btnDelete" value="Suppression">
                     </div>
                   </form>
                 ';
@@ -77,7 +89,7 @@
                 echo'
                   <form method="post" action="login.php">
                     <div class="connexion">
-                      <input type="submit" name="btnLogin" id="btnLogin" class="btnLogin" value="Connexion">
+                      <input type="submit" name="btnLogin" class="btnAll" value="Connexion">
                     </div>
                   </form>
                 ';
