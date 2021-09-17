@@ -6,11 +6,22 @@
   
   session_start();
 
+  //If the user has deleted a account
+    if(isset($_GET['delete']) && $_GET['delete'] == true){
+      echo "<script>alert('votre compte a bien été supprimer')</script>";
+      header("Location:index.php");
+    }
+
   //Si l'utilisateur a pressé sur le bouton se deconnecter
   if(isset($_POST['btnDisconnect']))
   {
     session_destroy();
     header('location:#');
+  }
+
+  if(isset($_POST['btnDelete']))
+  {
+    header('location:delete.php');
   }
 ?>
 <!doctype html>
@@ -49,7 +60,21 @@
             <img class="logoNavbar" src="../img/icon/logo-trans2.png" alt="logo de la terre">
             <strong class="fw-light">TerraCoast</strong>
           </a>
-          <div class="contianer-1">
+          <div class="container-1">
+            <?php
+              if(isset($_SESSION["isConnected"]))
+              {
+                echo'
+                  <a href="classement.php" class="navbar-brand d-flex align-items-center">
+                    <strong styles="padding-left: 3rem;" class="fw-light escape-navbar">Classement</strong>
+                  </a>
+                ';
+              }
+              else
+              {
+                echo' ';
+              }
+            ?>
             <a href="list-quiz.php" class="navbar-brand d-flex align-items-center">
               <strong styles="padding-left: 3rem;" class="fw-light escape-navbar">Quiz</strong>
             </a>
@@ -64,6 +89,7 @@
                   <form method="post" action="#">
                     <div class="connexion">
                       <input type="submit" name="btnDisconnect" class="btnAll" value="Déconnexion">
+                      <input type="submit" name="btnDelete" class="btnDelete" value="Suppression">
                     </div>
                   </form>
                 ';

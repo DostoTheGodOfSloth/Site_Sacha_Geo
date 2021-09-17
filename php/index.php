@@ -8,14 +8,14 @@
 
     include "manageDB.php";
     $database = new Database();
-    $quizzes = $database->getAllQuiz();
+    $quizzes = $database->getLastQuiz();
+    $quiz = $database->getFirstQuiz();
 
      //If the user has deleted a account
     if(isset($_GET['delete']) && $_GET['delete'] == true){
       echo "<script>alert('votre compte a bien été supprimer')</script>";
       header("Location:index.php");
     }
-
 
     //Si l'utilisateur a pressé sur le bouton se deconnecter
     if(isset($_POST['btnDisconnect']))
@@ -66,11 +66,27 @@
           <img class="logoNavbar" src="../img/icon/logo-trans2.png" alt="logo de la terre">
             <strong class="fw-light">TerraCoast</strong>
           </a>
-          <div class="contianer-1">
+          <div class="container-1">
+          	<?php
+              if(isset($_SESSION["isConnected"]))
+              {
+                echo'
+                  <a href="classement.php" class="navbar-brand d-flex align-items-center">
+                  	<strong styles="padding-left: 3rem;" class="fw-light escape-navbar">Classement</strong>
+              	  </a>
+                ';
+              }
+              else
+              {
+                echo' ';
+              }
+            ?>
             <a href="list-quiz.php" class="navbar-brand d-flex align-items-center">
               <strong styles="padding-left: 3rem;" class="fw-light escape-navbar">Quiz</strong>
             </a>
-            <a href="contact.php" class="navbar-brand d-flex align-items-center"><strong class="fw-light fw-light-1">Contact</strong></a>
+            <a href="contact.php" class="navbar-brand d-flex align-items-center">
+            	<strong class="fw-light fw-light-1">Contact</strong>
+            </a>
 
             <?php
               if(isset($_SESSION["isConnected"]))
@@ -95,7 +111,6 @@
                 ';
               }
             ?>
-
           </div>
         </div>  
       </div>
@@ -106,22 +121,6 @@
           <img class="logoPage" src="../img/icon/logo-trans2.png" alt="logo de la terre">
           <p class="fw-light-2">TerraCoast</p>
           <p class="lead text-muted">Pour vous culturer !</p>
-
-          <?php
-              if(isset($_SESSION["isConnected"]))
-              {
-                echo'
-                <p>
-                  <a href="classement.php" class="btn btn-secondary my-2 rank">Classement</a>
-                </p>
-                ';
-              }
-              else
-              {
-                echo' ';
-              }
-            ?>
-
         </div>
       </div>
       <div class="album py-5 bg-light">
@@ -129,27 +128,42 @@
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 boxQuiz">
 
             <?php
-              foreach ($quizzes as $quiz)
+              foreach ($quizzes as $quizs)
               {
-                for ($i=0; $i < 1 ; $i++)
-                {
-                  echo"
+	            echo"
                     <div class='card'>
-                      <a href='quiz/".$quiz['quiLien'].".php'>
-                        <p class='textCard'>".$quiz['quiTitre']."</p>
-                        <img class='imgCapital' src='../img/imgQuiz/".$quiz['idQuiz'].".png' alt='Lausanne'/>
+                      <a href='quiz/".$quizs['quiLien'].".php'>
+                        <p class='textCard'>".$quizs['quiTitre']."</p>
+                        <img class='imgCapital' src='../img/imgQuiz/".$quizs['idQuiz'].".png' alt='Lausanne'/>
                         <div class='card-body'>
-                          <p class='card-text'>".$quiz['quiDescription']."</p>
+                          <p class='card-text'>".$quizs['quiDescription']."</p>
                           <div class='text-muted-1'>
-                            <small>".$quiz['quiDifficulte']."</small>
-                            <small>".$quiz['quiTemps']."</small>
+                            <small>".$quizs['quiDifficulte']."</small>
+                            <small>".$quizs['quiTemps']."</small>
                           </div>
                         </div>
                       </a>
                     </div>
                   ";
-                }
-                break;
+              }
+
+              foreach ($quiz as $qui)
+              {
+	            echo"
+                    <div class='card'>
+                      <a href='quiz/".$qui['quiLien'].".php'>
+                        <p class='textCard'>".$qui['quiTitre']."</p>
+                        <img class='imgCapital' src='../img/imgQuiz/".$qui['idQuiz'].".png' alt='Lausanne'/>
+                        <div class='card-body'>
+                          <p class='card-text'>".$qui['quiDescription']."</p>
+                          <div class='text-muted-1'>
+                            <small>".$qui['quiDifficulte']."</small>
+                            <small>".$qui['quiTemps']."</small>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  ";
               }
             ?>
 

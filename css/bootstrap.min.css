@@ -292,15 +292,12 @@ footer{
 p, .lead, .text-muted-1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.contianer-1{
-    display: flex;
-}
 .container-2{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.contianer-1{
+.container-1{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -327,7 +324,7 @@ p, .lead, .text-muted-1{
     font-family: Righteous,sans-serif;
 }
 
-#btnDelete {
+.btnDelete {
     background-color: #f00020;
     color: #f7f7f7ff;
     box-shadow: none;

@@ -48,7 +48,7 @@
                         <img class="logoNavbar" src="../../../img/icon/logo-trans2.png" alt="logo de la terre">
                         <strong class="fw-light">TerraCoast</strong>
                     </a>
-                    <div class="contianer-1">
+                    <div class="container-1">
                         <a href="../../list-quiz.php" class="navbar-brand d-flex align-items-center">
                             <strong styles="padding-left: 3rem;" class="fw-light escape-navbar">Quiz</strong>
                         </a>

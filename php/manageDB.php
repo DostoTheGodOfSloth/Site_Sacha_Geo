@@ -285,5 +285,17 @@
                 ['search' => $search],
             );
         }
+
+        public function getLastQuiz(){
+
+            //Requête SQL pour recupérer les données d'une recette et execute la requête
+            return $this->querySimpleExecute('SELECT * FROM t_quiz ORDER BY idQuiz DESC LIMIT 2');
+        }
+
+        public function getFirstQuiz(){
+
+            //Requête SQL pour recupérer les données d'une recette et execute la requête
+            return $this->querySimpleExecute('SELECT * FROM t_quiz ORDER BY idQuiz ASC LIMIT 1');
+        }
     }
 ?>
