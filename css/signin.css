@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*   
   ETML
   Author      : Sacha Hunacek - Florian Tauxe
@@ -199,4 +200,207 @@ margin-top: 0px;
     font-size: 3.5rem;
   }
 }
+=======
+/*   
+  ETML
+  Author      : Sacha Hunacek - Florian Tauxe
+  Date        : 21.06.2021
+  Description : Fichier CSS de la page login.php
+*/
+html,body {
+  height: 100%;
+}
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #ffffff;
+  margin: 0;
+  font-family: var(--bs-font-sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000000;
+  -webkit-tap-highlight-color: transparent;
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+.text-center{
+  text-align: center!important;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 5;
+  border-bottom-left-radius: 5;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000000;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #000000;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  margin-bottom: 5px;
+}
+::placeholder{
+  color: #6c757d;
+}
+button, input, optgroup, select, textarea {
+  margin: 0;
+  font-family: inherit;
+}
+.form-signin {
+  width: 100%;
+  max-width: 370px;
+  padding: 15px;
+  margin: auto;
+  background-color: rgba(17, 138, 178, 0.4);
+  border-radius: 25px;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.fw-normal{
+font-family: Righteous,sans-serif;
+margin-top: 0px;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 5;
+  border-top-right-radius: 5;    
+  border-top: #ffffff;
+}
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  user-select: none;
+  font-size: 1rem;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  cursor: pointer;
+  width: 70%!important;
+  padding: .5rem 1rem;
+  font-family: Righteous,sans-serif;
+  font-size: 1.25rem;
+  border-radius: .3rem;
+  color: #ffffff;
+  background-color: #128ab2;
+  border-color: #4f837f;
+  margin-top: 10px;
+}
+.text-muted{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.error{
+  border: 1px solid #D8000C;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top: none;
+  margin-bottom: 10px;
+  padding:15px 10px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  color: #D8000C;
+  background-color: #FFBABA;
+  background-image: url('error.png');
+  font-size: 0.85rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.alert-error{
+  border: 2px solid #D8000C;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  color: #D8000C;
+  background-color: #FFBABA;
+  background-image: url('error.png');
+}
+.titleError{
+  margin: 0;
+  padding: 10px 0;
+  font-size: 1.25rem;
+  font-family: Righteous,sans-serif;
+}
+.success{
+  border: 1px solid #2b8f03;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top: none;
+  margin-bottom: 10px;
+  padding:15px 10px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  color: #2b8f03;
+  background-color: #91d178;
+  background-image: url('error.png');
+  font-size: 0.85rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.alert-success{
+  border: 2px solid #2b8f03;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  color: #2b8f03;
+  background-color: #91d178;
+  background-image: url('error.png');
+}
+.titleSuccess{
+  margin: 0;
+  padding: 10px 0;
+  font-size: 1.25rem;
+  font-family: Righteous,sans-serif;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+>>>>>>> 52483df8747c43191efbd10f394b24588eb337aa
   

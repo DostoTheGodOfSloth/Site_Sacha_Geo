@@ -111,6 +111,7 @@
           }
           elseif(isset($_POST["inscriptionSuccess"]))
           {
+<<<<<<< HEAD
             echo"
               <div class='alert-success'>
                 <p class='titleSuccess'>Succès</p>
@@ -119,6 +120,17 @@
                 <p>Votre compte a été créé avec succès</p>
               </div>
             ";
+=======
+            header("Location:index.php");
+            // echo"
+            //   <div class='alert-success'>
+            //     <p class='titleSuccess'>Succès</p>
+            //   </div>
+            //   <div class='success'>
+            //     <p>Votre compte a été créé avec succès</p>
+            //   </div>
+            // ";
+>>>>>>> 52483df8747c43191efbd10f394b24588eb337aa
           }
         ?>
       

@@ -8,7 +8,18 @@
 
     include "manageDB.php";
     $database = new Database();
+<<<<<<< HEAD
     $quizzes = $database->getAllQuiz();
+=======
+    $quizzes = $database->getLastQuiz();
+    $quiz = $database->getFirstQuiz();
+
+     //If the user has deleted a account
+    if(isset($_GET['delete']) && $_GET['delete'] == true){
+      echo "<script>alert('votre compte a bien été supprimer')</script>";
+      header("Location:index.php");
+    }
+>>>>>>> 52483df8747c43191efbd10f394b24588eb337aa
 
     //Si l'utilisateur a pressé sur le bouton se deconnecter
     if(isset($_POST['btnDisconnect']))
@@ -16,6 +27,14 @@
       session_destroy();
       header('location:#');
     }
+<<<<<<< HEAD
+=======
+
+    if(isset($_POST['btnDelete']))
+    {
+      header('location:delete.php');
+    }
+>>>>>>> 52483df8747c43191efbd10f394b24588eb337aa
 ?>
 
 <!doctype html>
@@ -54,11 +73,35 @@
           <img class="logoNavbar" src="../img/icon/logo-trans2.png" alt="logo de la terre">
             <strong class="fw-light">TerraCoast</strong>
           </a>
+<<<<<<< HEAD
           <div class="contianer-1">
             <a href="list-quiz.php" class="navbar-brand d-flex align-items-center">
               <strong styles="padding-left: 3rem;" class="fw-light escape-navbar">Quiz</strong>
             </a>
             <a href="contact.php" class="navbar-brand d-flex align-items-center"><strong class="fw-light fw-light-1">Contact</strong></a>
+=======
+          <div class="container-1">
+          	<?php
+              if(isset($_SESSION["isConnected"]))
+              {
+                echo'
+                  <a href="classement.php" class="navbar-brand d-flex align-items-center">
+                  	<strong styles="padding-left: 3rem;" class="fw-light escape-navbar">Classement</strong>
+              	  </a>
+                ';
+              }
+              else
+              {
+                echo' ';
+              }
+            ?>
+            <a href="list-quiz.php" class="navbar-brand d-flex align-items-center">
+              <strong styles="padding-left: 3rem;" class="fw-light escape-navbar">Quiz</strong>
+            </a>
+            <a href="contact.php" class="navbar-brand d-flex align-items-center">
+            	<strong class="fw-light fw-light-1">Contact</strong>
+            </a>
+>>>>>>> 52483df8747c43191efbd10f394b24588eb337aa
 
             <?php
               if(isset($_SESSION["isConnected"]))
@@ -66,7 +109,12 @@
                 echo'
                   <form method="post" action="#">
                     <div class="connexion">
+<<<<<<< HEAD
                       <input type="submit" name="btnDisconnect" id="btnDisconnect" class="btnDisconnect" value="Déconnexion">
+=======
+                      <input type="submit" name="btnDisconnect" class="btnAll" value="Déconnexion">
+                      <input type="submit" name="btnDelete" class="btnDelete" value="Suppression">
+>>>>>>> 52483df8747c43191efbd10f394b24588eb337aa
                     </div>
                   </form>
                 ';
@@ -76,13 +124,20 @@
                 echo'
                   <form method="post" action="login.php">
                     <div class="connexion">
+<<<<<<< HEAD
                       <input type="submit" name="btnLogin" id="btnLogin" class="btnLogin" value="Connexion">
+=======
+                      <input type="submit" name="btnLogin" class="btnAll" value="Connexion">
+>>>>>>> 52483df8747c43191efbd10f394b24588eb337aa
                     </div>
                   </form>
                 ';
               }
             ?>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 52483df8747c43191efbd10f394b24588eb337aa
           </div>
         </div>  
       </div>
@@ -93,6 +148,7 @@
           <img class="logoPage" src="../img/icon/logo-trans2.png" alt="logo de la terre">
           <p class="fw-light-2">TerraCoast</p>
           <p class="lead text-muted">Pour vous culturer !</p>
+<<<<<<< HEAD
 
           <?php
               if(isset($_SESSION["isConnected"]))
@@ -109,6 +165,8 @@
               }
             ?>
 
+=======
+>>>>>>> 52483df8747c43191efbd10f394b24588eb337aa
         </div>
       </div>
       <div class="album py-5 bg-light">
@@ -116,6 +174,7 @@
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 boxQuiz">
 
             <?php
+<<<<<<< HEAD
               foreach ($quizzes as $quiz)
               {
                 for ($i=0; $i < 1 ; $i++)
@@ -130,13 +189,49 @@
                           <div class='text-muted-1'>
                             <small>".$quiz['quiDifficulte']."</small>
                             <small>".$quiz['quiTemps']."</small>
+=======
+              foreach ($quizzes as $quizs)
+              {
+	            echo"
+                    <div class='card'>
+                      <a href='quiz/".$quizs['quiLien'].".php'>
+                        <p class='textCard'>".$quizs['quiTitre']."</p>
+                        <img class='imgCapital' src='../img/imgQuiz/".$quizs['idQuiz'].".png' alt='Lausanne'/>
+                        <div class='card-body'>
+                          <p class='card-text'>".$quizs['quiDescription']."</p>
+                          <div class='text-muted-1'>
+                            <small>".$quizs['quiDifficulte']."</small>
+                            <small>".$quizs['quiTemps']."</small>
                           </div>
                         </div>
                       </a>
                     </div>
                   ";
+              }
+
+              foreach ($quiz as $qui)
+              {
+	            echo"
+                    <div class='card'>
+                      <a href='quiz/".$qui['quiLien'].".php'>
+                        <p class='textCard'>".$qui['quiTitre']."</p>
+                        <img class='imgCapital' src='../img/imgQuiz/".$qui['idQuiz'].".png' alt='Lausanne'/>
+                        <div class='card-body'>
+                          <p class='card-text'>".$qui['quiDescription']."</p>
+                          <div class='text-muted-1'>
+                            <small>".$qui['quiDifficulte']."</small>
+                            <small>".$qui['quiTemps']."</small>
+>>>>>>> 52483df8747c43191efbd10f394b24588eb337aa
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  ";
+<<<<<<< HEAD
                 }
                 break;
+=======
+>>>>>>> 52483df8747c43191efbd10f394b24588eb337aa
               }
             ?>
 
