@@ -123,6 +123,23 @@
             $connect = $connection->connect($_POST['login']);
             $_SESSION['idUser'] = $connect[0]['idUser'];
             header("Location:index");
+            echo"
+              <div class='alert-success'>
+                <p class='titleSuccess'>Succès</p>
+              </div>
+              <div class='success'>
+                <p>Votre compte a été créé avec succès</p>
+              </div>
+            ";
+            header("Location:index.php");
+            // echo"
+            //   <div class='alert-success'>
+            //     <p class='titleSuccess'>Succès</p>
+            //   </div>
+            //   <div class='success'>
+            //     <p>Votre compte a été créé avec succès</p>
+            //   </div>
+            // ";
           }
         ?>
       

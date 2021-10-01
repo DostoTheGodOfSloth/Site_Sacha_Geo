@@ -8,6 +8,7 @@
 
     include "manageDB.php";
     $database = new Database();
+    $quizzes = $database->getAllQuiz();
     $quizzes = $database->getLastQuiz();
     $quiz = $database->getFirstQuiz();
 
@@ -66,6 +67,11 @@
           <img class="logoNavbar" src="../img/icon/logo-trans2.png" alt="logo de la terre">
             <strong class="fw-light">TerraCoast</strong>
           </a>
+          <div class="contianer-1">
+            <a href="list-quiz.php" class="navbar-brand d-flex align-items-center">
+              <strong styles="padding-left: 3rem;" class="fw-light escape-navbar">Quiz</strong>
+            </a>
+            <a href="contact.php" class="navbar-brand d-flex align-items-center"><strong class="fw-light fw-light-1">Contact</strong></a>
           <div class="container-1">
           	<?php
               if(isset($_SESSION["isConnected"]))
@@ -94,6 +100,7 @@
                 echo'
                   <form method="post" action="#">
                     <div class="connexion">
+                      <input type="submit" name="btnDisconnect" id="btnDisconnect" class="btnDisconnect" value="Déconnexion">
                       <input type="submit" name="btnDisconnect" class="btnAll" value="Déconnexion">
                       <input type="submit" name="btnDelete" class="btnDelete" value="Suppression">
                     </div>
@@ -105,6 +112,7 @@
                 echo'
                   <form method="post" action="login">
                     <div class="connexion">
+                      <input type="submit" name="btnLogin" id="btnLogin" class="btnLogin" value="Connexion">
                       <input type="submit" name="btnLogin" class="btnAll" value="Connexion">
                     </div>
                   </form>
@@ -121,6 +129,20 @@
           <img class="logoPage" src="../img/icon/logo-trans2.png" alt="logo de la terre">
           <p class="fw-light-2">TerraCoast</p>
           <p class="lead text-muted">Pour vous culturer !</p>
+          <?php
+              if(isset($_SESSION["isConnected"]))
+              {
+                echo'
+                <p>
+                  <a href="classement.php" class="btn btn-secondary my-2 rank">Classement</a>
+                </p>
+                ';
+              }
+              else
+              {
+                echo' ';
+              }
+            ?>
         </div>
       </div>
       <div class="album py-5 bg-light">
@@ -149,7 +171,7 @@
 
               foreach ($quiz as $qui)
               {
-	            echo"
+	             echo"
                     <div class='card'>
                       <a href='quiz/".$qui['quiLien']."'>
                         <p class='textCard'>".$qui['quiTitre']."</p>
@@ -166,7 +188,6 @@
                   ";
               }
             ?>
-
           </div>
         </div>
       </div>
