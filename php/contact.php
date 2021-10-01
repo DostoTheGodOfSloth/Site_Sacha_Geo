@@ -56,7 +56,7 @@
     <header>
       <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container container-2">
-          <a href="index.php" class="navbar-brand d-flex align-items-center">
+          <a href="index" class="navbar-brand d-flex align-items-center">
             <img class="logoNavbar" src="../img/icon/logo-trans2.png" alt="logo de la terre">
             <strong class="fw-light">TerraCoast</strong>
           </a>
@@ -65,7 +65,7 @@
               if(isset($_SESSION["isConnected"]))
               {
                 echo'
-                  <a href="classement.php" class="navbar-brand d-flex align-items-center">
+                  <a href="classement" class="navbar-brand d-flex align-items-center">
                     <strong styles="padding-left: 3rem;" class="fw-light escape-navbar">Classement</strong>
                   </a>
                 ';
@@ -75,10 +75,10 @@
                 echo' ';
               }
             ?>
-            <a href="list-quiz.php" class="navbar-brand d-flex align-items-center">
+            <a href="list-quiz" class="navbar-brand d-flex align-items-center">
               <strong styles="padding-left: 3rem;" class="fw-light escape-navbar">Quiz</strong>
             </a>
-            <a href="contact.php" class="navbar-brand d-flex align-items-center">
+            <a href="contact" class="navbar-brand d-flex align-items-center">
               <strong class="fw-light fw-light-1">Contact</strong>
             </a>
             
@@ -97,7 +97,7 @@
               else
               {
                 echo'
-                  <form method="post" action="login.php">
+                  <form method="post" action="login">
                     <div class="connexion">
                       <input type="submit" name="btnLogin" class="btnAll" value="Connexion">
                     </div>
@@ -114,7 +114,7 @@
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
           <h1 class="fw-light">Qui sommes-nous ?</h1>
-          <p class="lead text-muted">Nous sommes une petite équipe de 2 jeunes apprentis en CFC informaticien, qui avons choisi de développer
+          <p class="lead text-muted">Nous sommes une petite équipe de 4 jeunes apprentis en CFC informaticien, qui avons choisi de développer
           ce site web dans le but de démontrer notre motivation & aussi de pouvoir développer nos connaissances géographiques et informatique tout en s'amusant !</p>
         </div>
       </div>
@@ -153,6 +153,17 @@
                 </div>
                 <div class="card-body">
                   <p class="card-text">Email : <a href="mailto:sebastien.voide@eduvaud.ch" class="mail">sebastien.voide@eduvaud.ch</a><br><br>Merci à Sebastien Voide pour son aide précieuse 🍫❤️.</p>
+                  <div class="text-muted-1">
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <p class="textCard">Dorian Capelli</p>
+                <div style="display:flex; justify-content: center;">
+                    <img class="michel" src="../img/contact/dorcapelli.jpg" alt="Lausanne"/>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Email : <a href="mailto:dorian.capelli@eduvaud.ch" class="mail">dorian.capelli@eduvaud.ch</a><br><br>Merci au Grand Dorian le héro de ce site pour son aide précieuse 🍫❤️.</p>
                   <div class="text-muted-1">
                   </div>
                 </div>

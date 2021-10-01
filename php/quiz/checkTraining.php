@@ -63,7 +63,7 @@
                 <div class="container-f">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 boxQuiz-1" id="training-1">
                         <div class="titleResult">
-                            <a href="../list-quiz.php"><img class="arrowLeft" src="../../img/icon/arrow.png" alt="flèche de retour"/></a>
+                            <a href="../list-quiz"><img class="arrowLeft" src="../../img/icon/arrow.png" alt="flèche de retour"/></a>
                             <div class="titleResult-1">
                                 <p class="titleQuiz">Résultat :</p>
                             </div>
@@ -113,7 +113,7 @@
                                             ";
                                         }
                                     }
-                                    echo"<a href='training.php#training'><button class='btnCheck-training' id='suivant'>Suivant</button></a>";
+                                    echo"<a href='training#training'><button class='btnCheck-training' id='suivant'>Suivant</button></a>";
                                 }
                             ?>
 

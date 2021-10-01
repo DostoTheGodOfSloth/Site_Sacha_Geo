@@ -63,14 +63,14 @@
                 <div class="container-f">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 boxQuiz-1" id="training">
                         <div class="titleResult">
-                            <a href="../list-quiz.php"><img class="arrowLeft" src="../../img/icon/arrow.png" alt="flèche de retour"/></a>
-                            <a href="training.php"><img class="btnReload" src="../../img/icon/reload.png" alt="refresh"/></a>
+                            <a href="../list-quiz"><img class="arrowLeft" src="../../img/icon/arrow.png" alt="flèche de retour"/></a>
+                            <a href="training"><img class="btnReload" src="../../img/icon/reload.png" alt="refresh"/></a>
                             <p id="text" class="timer"></p>
                             <div class="titleResult-1">
                                 <p class="titleQuiz">Quel est ce pays ?</p>
                             </div>
                         </div>
-                        <form method="post" action="checkTraining.php#training-1" enctype="multipart/form-data" >
+                        <form method="post" action="checkTraining#training-1" enctype="multipart/form-data" >
                             <div class="flexForm">
 
                                 <?php 

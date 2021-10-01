@@ -64,11 +64,12 @@
                 if($param)
                     $req->bindValue(":$key", $value, $param);
             }
-                //On execute
-                $req->execute();
+            
+            //On execute
+            $req->execute();
 
-                //On retourne la réponse formaté
-                return $this->formatData($req);
+            //On retourne la réponse formaté
+            return $this->formatData($req);
         }
 
         /**

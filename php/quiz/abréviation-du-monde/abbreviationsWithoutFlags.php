@@ -44,15 +44,15 @@
         <header>  
             <div class="navbar navbar-dark bg-dark shadow-sm">
                 <div class="container container-2">
-                    <a href="../../index.php" class="navbar-brand d-flex align-items-center">
+                    <a href="../../index" class="navbar-brand d-flex align-items-center">
                         <img class="logoNavbar" src="../../../img/icon/logo-trans2.png" alt="logo de la terre">
                         <strong class="fw-light">TerraCoast</strong>
                     </a>
                     <div class="container-1">
-                        <a href="../../list-quiz.php" class="navbar-brand d-flex align-items-center">
+                        <a href="../../list-quiz" class="navbar-brand d-flex align-items-center">
                             <strong styles="padding-left: 3rem;" class="fw-light escape-navbar">Quiz</strong>
                         </a>
-                        <a href="../../contact.php" class="navbar-brand d-flex align-items-center">
+                        <a href="../../contact" class="navbar-brand d-flex align-items-center">
                             <strong class="fw-light">Contact</strong>
                         </a>
                     </div>
@@ -64,14 +64,14 @@
                 <div class="container-f">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 boxQuiz-1">
                         <div class="titleResult">
-                            <a href="../../list-quiz.php"><img class="arrowLeft" src="../../../img/icon/arrow.png" alt="flèche de retour"/></a>
-                            <a href="abbreviationsWithoutFlags.php"><img class="btnReload" src="../../../img/icon/reload.png" alt="refresh"/></a>
+                            <a href="../../list-quiz"><img class="arrowLeft" src="../../../img/icon/arrow.png" alt="flèche de retour"/></a>
+                            <a href="abbreviationsWithoutFlags"><img class="btnReload" src="../../../img/icon/reload.png" alt="refresh"/></a>
                             <p id="text" class="timer"></p>
                             <div class="titleResult-1">
                                 <p class="titleQuiz">Quels sont ces abréviations ?</p>
                             </div>
                         </div>
-                        <form method="post" action="checkAbbreviationsWithoutFlags.php" enctype="multipart/form-data" >
+                        <form method="post" action="checkAbbreviationsWithoutFlags" enctype="multipart/form-data" >
                             <div class="flexForm">
                                 <?php 
                                     $pays = $database->getAllPays();

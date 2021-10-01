@@ -55,7 +55,7 @@ body {
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   margin-bottom: 5px;
 }
-::placeholder{
+:placeholder{
   color: #6c757d;
 }
 button, input, optgroup, select, textarea {
@@ -70,10 +70,10 @@ button, input, optgroup, select, textarea {
   background-color: rgba(17, 138, 178, 0.4);
   border-radius: 25px;
 }
-.form-signin .checkbox {
+/*.form-signin .checkbox {
   font-weight: 400;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+}*/
 .form-signin .form-control {
   position: relative;
   box-sizing: border-box;
@@ -199,4 +199,3 @@ margin-top: 0px;
     font-size: 3.5rem;
   }
 }
-  

@@ -41,15 +41,15 @@
   <header>  
       <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container container-2">
-          <a href="index.php" class="navbar-brand d-flex align-items-center">
+          <a href="index" class="navbar-brand d-flex align-items-center">
           <img class="logoNavbar" src="../img/icon/logo-trans2.png" alt="logo de la terre">
             <strong class="fw-light">TerraCoast</strong>
           </a>
           <div class="container-1">
-            <a href="list-quiz.php" class="navbar-brand d-flex align-items-center">
+            <a href="list-quiz" class="navbar-brand d-flex align-items-center">
               <strong styles="padding-left: 3rem;" class="fw-light escape-navbar">Quiz</strong>
             </a>
-            <a href="contact.php" class="navbar-brand d-flex align-items-center">
+            <a href="contact" class="navbar-brand d-flex align-items-center">
               <strong class="fw-light fw-light-1">Contact</strong>
             </a>
           </div>

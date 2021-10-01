@@ -49,7 +49,7 @@
   <body class="text-center">
     <main class="form-signin">
   
-      <form method="post" action="login.php" class="g-3">
+      <form method="post" action="login" class="g-3">
 
       <?php
         //Affichage des erreurs du mot de passe
@@ -73,9 +73,9 @@
         <label for="inputPassword" class="visually-hidden"></label>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
 
-        <a href="index.php"><button class="btn" name="btnLogin" type="submit">Se connecter</button></a>
-        <a class="mt-5 mb-3 text-muted" href="signup.php"><p>Pas encore un compte ?</p></a>
-        <a class="mt-5 mb-3 text-muted" href="index.php"><p>Revenir à la page d'accueil</p></a>
+        <a href="index"><button class="btn" name="btnLogin" type="submit">Se connecter</button></a>
+        <a class="mt-5 mb-3 text-muted" href="signup"><p>Pas encore un compte ?</p></a>
+        <a class="mt-5 mb-3 text-muted" href="index"><p>Revenir à la page d'accueil</p></a>
         <p class="mt-5 mb-3 text-muted">&copy; Copyright 2021</br>-</br>Sacha Hunacek & Florian Tauxe</p>
       </form>
 

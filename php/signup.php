@@ -42,42 +42,49 @@
     $password = $_POST['password'];
     $connect = $connection->connect($nameUser);
 
-    //Contrôle que le nom d'utilisateur ne commence pas par un espace et compte la longueur du strings
-    if(strlen(trim($nameUser)) >= 1) {
-      if(count($connect) == 0) {
-            //Appel la fonction checkPasswordRegex
-            $confim = checkPasswordRegex($password);
+    if(isset($checkbox)){
+      $checkbox = $_POST['RGPD'];
+      //Contrôle que le nom d'utilisateur ne commence pas par un espace et compte la longueur du strings
+      if(strlen(trim($nameUser)) >= 1) {
+        if(count($connect) == 0) {
+          //Appel la fonction checkPasswordRegex
+          $confim = checkPasswordRegex($password);
 
-            //Contrôle si le mdp correspond à la regex
-            if(count($confim) == 0)
+          //Contrôle si le mdp correspond à la regex
+          if(count($confim) == 0)
+          {
+            $textSucecss = " ";
+            $_POST["inscriptionSuccess"] = $textSucecss;
+            //Envoie les données dans la db et Hachage du mdp
+            $connection->createAccount($nameUser,password_hash($password,PASSWORD_BCRYPT));
+          }
+          //Mise en place des erreurs du mot de passe
+          else
+          {
+            $text = "Il n'y a pas ";
+            for($i = 0; $i < count($confim); ++$i)
             {
-              $textSucecss = " ";
-              $_POST["inscriptionSuccess"] = $textSucecss;
-              //Envoie les données dans la db et Hachage du mdp
-              $connection->createAccount($nameUser,password_hash($password,PASSWORD_BCRYPT));
-            }
-            //Mise en place des erreurs du mot de passe
-            else
-            {
-              $text = "Il n'y a pas ";
-              for($i = 0; $i < count($confim); ++$i)
-              {
-                if($i != 0) {
-                  $text .= ", ";
-                }
-                $text .= $confim[$i];
+              if($i != 0) {
+                $text .= ", ";
               }
-              $_POST['inscriptionError'][] = $text;
+              $text .= $confim[$i];
             }
+            $_POST['inscriptionError'][] = $text;
+          }
+        }
+        else
+        {
+          $_POST['inscriptionError'][] = "Le login est déjà utilisé";
+        }
       }
       else
       {
-        $_POST['inscriptionError'][] = "Le login est déjà utilisé";
+        $_POST['inscriptionError'][] = "Le login ne doit pas commencer par un espace";
       }
     }
     else
     {
-      $_POST['inscriptionError'][] = "Le login ne doit pas commencer par un espace";
+      $_POST['inscriptionError'][] = "La politique de confidentialité n'est pas accepté";
     }
   }
 ?>
@@ -111,15 +118,11 @@
           }
           elseif(isset($_POST["inscriptionSuccess"]))
           {
-            header("Location:index.php");
-            // echo"
-            //   <div class='alert-success'>
-            //     <p class='titleSuccess'>Succès</p>
-            //   </div>
-            //   <div class='success'>
-            //     <p>Votre compte a été créé avec succès</p>
-            //   </div>
-            // ";
+            $_SESSION['isConnected'] = true;
+
+            $connect = $connection->connect($_POST['login']);
+            $_SESSION['idUser'] = $connect[0]['idUser'];
+            header("Location:index");
           }
         ?>
       
@@ -133,9 +136,12 @@
         <label for="inputPassword" class="visually-hidden"></label>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
 
-        <a href="index.php"><button class="btn" name="btnCreate" type="submit">Créer</button></a>
-        <a class="mt-5 mb-3 text-muted" href="login.php"><p>Déjà un compte ?</p></a>
-        <a class="mt-5 mb-3 text-muted" href="index.php"><p>Revenir à la page d'accueil</p></a>
+        <input type="checkbox" name="RGPD" value="oui" required><strong>
+        <label class="h3 mb-3 fw-normal">Accepter notre <a herf="#.pdf">politique de confidentialité</a></label></strong>
+
+        <a href="index"><button class="btn" name="btnCreate" type="submit">Créer</button></a>
+        <a class="mt-5 mb-3 text-muted" href="login"><p>Déjà un compte ?</p></a>
+        <a class="mt-5 mb-3 text-muted" href="index"><p>Revenir à la page d'accueil</p></a>
         <p class="mt-5 mb-3 text-muted">&copy; Copyright 2021</br>-</br>Sacha Hunacek & Florian Tauxe</p>
 
       </form>

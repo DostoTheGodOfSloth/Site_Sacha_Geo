@@ -62,7 +62,7 @@
     <header>  
       <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container container-2">
-          <a href="index.php" class="navbar-brand d-flex align-items-center">
+          <a href="index" class="navbar-brand d-flex align-items-center">
           <img class="logoNavbar" src="../img/icon/logo-trans2.png" alt="logo de la terre">
             <strong class="fw-light">TerraCoast</strong>
           </a>
@@ -71,7 +71,7 @@
               if(isset($_SESSION["isConnected"]))
               {
                 echo'
-                  <a href="classement.php" class="navbar-brand d-flex align-items-center">
+                  <a href="classement" class="navbar-brand d-flex align-items-center">
                   	<strong styles="padding-left: 3rem;" class="fw-light escape-navbar">Classement</strong>
               	  </a>
                 ';
@@ -81,10 +81,10 @@
                 echo' ';
               }
             ?>
-            <a href="list-quiz.php" class="navbar-brand d-flex align-items-center">
+            <a href="list-quiz" class="navbar-brand d-flex align-items-center">
               <strong styles="padding-left: 3rem;" class="fw-light escape-navbar">Quiz</strong>
             </a>
-            <a href="contact.php" class="navbar-brand d-flex align-items-center">
+            <a href="contact" class="navbar-brand d-flex align-items-center">
             	<strong class="fw-light fw-light-1">Contact</strong>
             </a>
 
@@ -103,7 +103,7 @@
               else
               {
                 echo'
-                  <form method="post" action="login.php">
+                  <form method="post" action="login">
                     <div class="connexion">
                       <input type="submit" name="btnLogin" class="btnAll" value="Connexion">
                     </div>
@@ -132,7 +132,7 @@
               {
 	            echo"
                     <div class='card'>
-                      <a href='quiz/".$quizs['quiLien'].".php'>
+                      <a href='quiz/".$quizs['quiLien']."'>
                         <p class='textCard'>".$quizs['quiTitre']."</p>
                         <img class='imgCapital' src='../img/imgQuiz/".$quizs['idQuiz'].".png' alt='Lausanne'/>
                         <div class='card-body'>
@@ -151,7 +151,7 @@
               {
 	            echo"
                     <div class='card'>
-                      <a href='quiz/".$qui['quiLien'].".php'>
+                      <a href='quiz/".$qui['quiLien']."'>
                         <p class='textCard'>".$qui['quiTitre']."</p>
                         <img class='imgCapital' src='../img/imgQuiz/".$qui['idQuiz'].".png' alt='Lausanne'/>
                         <div class='card-body'>

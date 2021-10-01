@@ -66,7 +66,7 @@
     <header>  
       <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container container-2">
-          <a href="index.php" class="navbar-brand d-flex align-items-center">
+          <a href="index" class="navbar-brand d-flex align-items-center">
           <img class="logoNavbar" src="../img/icon/logo-trans2.png" alt="logo de la terre">
             <strong class="fw-light">TerraCoast</strong>
           </a>
@@ -75,7 +75,7 @@
               if(isset($_SESSION["isConnected"]))
               {
                 echo'
-                  <a href="classement.php" class="navbar-brand d-flex align-items-center">
+                  <a href="classement" class="navbar-brand d-flex align-items-center">
                     <strong styles="padding-left: 3rem;" class="fw-light escape-navbar">Classement</strong>
                   </a>
                 ';
@@ -85,10 +85,10 @@
                 echo' ';
               }
             ?>
-            <a href="list-quiz.php" class="navbar-brand d-flex align-items-center">
+            <a href="list-quiz" class="navbar-brand d-flex align-items-center">
               <strong styles="padding-left: 3rem;" class="fw-light escape-navbar">Quiz</strong>
             </a>
-            <a href="contact.php" class="navbar-brand d-flex align-items-center">
+            <a href="contact" class="navbar-brand d-flex align-items-center">
               <strong class="fw-light fw-light-1">Contact</strong>
             </a>
 
@@ -107,7 +107,7 @@
               else
               {
                 echo'
-                  <form method="post" action="login.php">
+                  <form method="post" action="login">
                     <div class="connexion">
                       <input type="submit" name="btnLogin" class="btnAll" value="Connexion">
                     </div>
@@ -123,7 +123,7 @@
     <section class="py-5 text-center container">
       <div class="album py-5 bg-light">
 
-        <form action="list-quiz.php" method="get" id="search">
+        <form action="list-quiz" method="get" id="search">
           <input type="search" name="terme" id="bar">
           <input type="submit" class="btnAll" value="Rechercher">
         </form>
@@ -138,7 +138,7 @@
                 {
                   echo"
                     <div class='card'>
-                      <a href='quiz/".$quiz['quiLien'].".php'>
+                      <a href='quiz/".$quiz['quiLien']."'>
                         <p class='textCard'>".$quiz['quiTitre']."</p>
                         <img class='imgCapital' src='../img/imgQuiz/".$quiz['idQuiz'].".png' alt='Lausanne'/>
                         <div class='card-body'>
@@ -163,7 +163,7 @@
               {
                 echo"
                   <div class='card'>
-                    <a href='quiz/".$quiz['quiLien'].".php'>
+                    <a href='quiz/".$quiz['quiLien']."'>
                       <p class='textCard'>".$quiz['quiTitre']."</p>
                       <img class='imgCapital' src='../img/imgQuiz/".$quiz['idQuiz'].".png' alt='Lausanne'/>
                       <div class='card-body'>
